@@ -1,0 +1,75 @@
+.login{
+    width: 100%;
+    height: 100%;
+
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    /* align-content: center;
+    justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-content: center;
+}
+
+.logo{
+    width: 30%;
+    align-self: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+h1{
+    color: #ffffff;
+    text-align: left;
+}
+
+.contenedorForm{
+    width: 45%;
+    align-self: center;
+}
+
+.formulario{
+    border-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: center;
+    gap: 4px;
+}
+.campos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+button{
+    width: 70%;
+    height: 70%;
+}
+
+.ingresar{
+    background-color: #53009c;
+    border-color: transparent;
+}
+
+.ingresar:hover{
+    background-color: #6f1cb8;
+    color: aliceblue;
+}
+
+.registrarme{
+    background-color: rgb(82, 59, 172);
+    color: aliceblue;
+    border-color: transparent;
+}
+
+.registrarme:hover{
+    background-color: rgb(89, 64, 187);
+    color: aliceblue;
+}

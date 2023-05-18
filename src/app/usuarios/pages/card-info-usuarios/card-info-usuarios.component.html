@@ -1,0 +1,40 @@
+<div class="card mb-3 `{{estudiante.perfil}}`" appListaEstudiantes>
+  <div class="row g-0">
+    <div class="col-md-4 ">
+      <img src=" https://cdn-icons-png.flaticon.com/512/6073/6073874.png"
+        class="img-fluid rounded-start imagenEstudiante" style="padding-top: 15px;" alt="imagen-Usuario">
+      <div class="notasMaterias">
+        <p class="card-text notaMateria">{{"Matematicas" | materias : "Matematicas" }} <span
+            [ngClass]="estudiante.notasMaterias.matematicas >= 66 ? 'aprobado':'perdido'">{{estudiante.notasMaterias.matematicas}}</span>
+        </p>
+        <p class="card-text notaMateria">Ciencias: <span
+            [ngClass]="estudiante.notasMaterias.ciencias >= 66 ? 'aprobado':'perdido'">{{estudiante.notasMaterias.ciencias}}</span>
+        </p>
+        <p class="card-text notaMateria">Ingles: <span
+            [ngClass]="estudiante.notasMaterias.ingles >= 66 ? 'aprobado':'perdido'">{{estudiante.notasMaterias.ingles}}</span>
+        </p>
+        <p class="card-text notaMateria">Fisica:<span
+            [ngClass]="estudiante.notasMaterias.fisica >= 66 ? 'aprobado':'perdido'">{{estudiante.notasMaterias.fisica}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body cardEstudiante">
+        <h5 class="card-title" appCabecerasTamano20> Nombre:
+          {{nombreCompleto | juntarNombres: estudiante.nombre : estudiante.apellidos}}</h5>
+        <h5 class="card-text"> Identificación: {{estudiante.identificacion}}</h5>
+        <p class="card-text">edad: {{estudiante.edad}}</p>
+        <p class="card-text">Perfil: {{estudiante.perfil | uppercase}}</p>
+        <p class="card-text">salon: {{estudiante.salon}}</p>
+        <p class="card-text" [ngClass]="promedio >= 70 ? 'aprobado':'perdido'">Promedio:
+          {{sacarPromedio(estudiante.notasMaterias.matematicas,estudiante.notasMaterias.ciencias, estudiante.notasMaterias.ingles,estudiante.notasMaterias.fisica)}}
+        </p>
+
+        <p class="card-text">Observaciones: <br> {{estudiante.observaciones}}</p>
+
+        <a href="#" class="btn btn-primary m-1" (click)="editarEstudiante()">Editar</a>
+        <a href="#" class="btn btn-danger m-1">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>

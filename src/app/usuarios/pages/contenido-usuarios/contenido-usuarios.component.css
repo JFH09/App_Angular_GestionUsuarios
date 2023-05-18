@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+    display: none;
+}
+.contenidoEstudiantes{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3px;
+    column-gap: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+app-card-info-estudiante{
+    width: 100%;
+    
+}

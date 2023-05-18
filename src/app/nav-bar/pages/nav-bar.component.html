@@ -1,0 +1,30 @@
+<nav class="menuLateral">
+  <!-- <div>
+      <app-logo></app-logo>
+    </div> -->
+  <div class="contenidoNav">
+    <div class="card mb-3 cardPerfil">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://cdn-icons-png.flaticon.com/512/6073/6073874.png" class="img-fluid rounded-start pt-2 pl-5 "
+            alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Usuario: pepito</h5>
+            <p class="card-text mb-0">Rol: Administrador</p>
+            <p class="card-text  mb-0"><small class="text-body-secondary"> Fecha Ingreso: {{fecha | date}}</small></p>
+            <p class="card-text mb-0"><small class="text-body-secondary"> Hora:
+                {{fecha | date : "h:mm:ss a"}}</small>
+            </p>
+            <p class="card-text"><small class="text-body-secondary"> Tiempo Sesión: {{tiempoSesion}}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="paginas">
+    <app-listado-paginas></app-listado-paginas>
+  </div>
+</nav>

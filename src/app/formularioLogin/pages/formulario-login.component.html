@@ -1,0 +1,39 @@
+<div class="login">
+  <!-- <app-logo></app-logo> -->
+  <div class="logo">
+    <img src="../../assets/LogoPizarra.svg" alt="">
+  </div>
+  <div class="contenedorForm">
+    <h1>Iniciar Sesión</h1>
+    <form [formGroup]="formularioLogin" (submit)="validarUsuario()" class="example-form formulario">
+
+
+      <div class="campos">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" required formControlName="usuarioLoginEmail">
+          <mat-icon matSuffix>mail</mat-icon>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> ARRIBA FALTARIA  [formControl]="email" -->
+        </mat-form-field>
+        <mat-form-field class="password" appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <button type="submit" class="btn btn-primary ingresar">Ingresar</button>
+      <!--routerLink="/panelPrincipal"-->
+      <button type="button" class="btn btn-light registrarme" routerLink="/registro">Registrarme</button>
+      <!-- <br>
+      {{formularioRegistro.value | json}}
+      <br>
+      <h5>Nombre: </h5> {{formularioRegistro.get("nombre")?.value | json}} -->
+    </form>
+  </div>
+
+
+</div>
