@@ -32,7 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     JuntarNombresPipe,
     MateriasPipe,
     DiferenciaUsuariosAdminEstudDirective,
-   FormularioRegistroComponent
+    FormularioRegistroComponent
   ],
   imports: [
     CommonModule,

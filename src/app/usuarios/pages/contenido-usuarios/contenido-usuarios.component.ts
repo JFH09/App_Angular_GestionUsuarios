@@ -10,14 +10,24 @@ import { UsuarioEstudiante } from '../../interfaces/usuarioEstudiante.model';
   styleUrls: ['./contenido-usuarios.component.css']
 })
 export class ContenidoUsuariosComponent implements OnInit{
+  listaUsuarios: any = [];
+  listaUsers: any[] = [];
   
-  public listaUsuarios: UsuarioEstudiante[]=[];
+//  public listaUsuarios: UsuarioEstudiante[]=[];
+  //public listaUsers: UsuarioEstudiante[] =  [];
   constructor(private store: Store){}
   ngOnInit(): void {
     this.store.dispatch(UsuarioActions.loadUsuarios());
     this.store
       .select(selectUsuarioState)
-      .subscribe((response) => (this.listaUsuarios = response.data));
+      .subscribe((response) => {
+      //  (this.listaUsuarios = response.data)
+      this.listaUsuarios = Object.values(response.data); // Convertir el objeto en un array de valores
+      this.listaUsers = this.listaUsuarios;
+      });
+    
+    
   }
+
 
 }

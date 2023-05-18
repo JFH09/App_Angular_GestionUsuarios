@@ -13,12 +13,12 @@ import { DiferenciaUsuariosAdminEstudDirective } from '../directivas/diferencia-
 
 @NgModule({
   declarations: [
-    ContenidoUsuariosComponent,
+  //  ContenidoUsuariosComponent,
     //CardInfoUsuariosComponent,
     CabecerasTamano20Directive,
     JuntarNombresPipe,
     MateriasPipe,
-    DiferenciaUsuariosAdminEstudDirective
+    //DiferenciaUsuariosAdminEstudDirective
   ],
   imports: [
     CommonModule,

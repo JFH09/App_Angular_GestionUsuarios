@@ -5,7 +5,7 @@ export const UsuarioActions = createActionGroup({
   source: 'Usuario',
   events: {
     'Load Usuarios': emptyProps(),
-    'Load Usuarios Success': props<{ data: UsuarioEstudiante[] }>(),
+    'Load Usuarios Success': props<{ data: any }>(),
     'Load Usuarios Failure': props<{ error: unknown }>(),
   }
 });

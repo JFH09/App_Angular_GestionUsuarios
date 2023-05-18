@@ -20,4 +20,6 @@ export class ObtenerUsuariosService {
    return this.endpoint.get(`${environment.desarrolloURL}datosUsuariosProvisional.json`)
  }
 
+
+
 }

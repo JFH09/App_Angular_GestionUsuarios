@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ObtenerInfoLocalStorageService } from 'src/app/servicios/obtener-info-local-storage.service';
 
 @Component({
   selector: 'app-formulario-registro',
@@ -11,13 +12,16 @@ export class FormularioRegistroComponent implements OnInit{
   public formularioRegistro!: FormGroup;
   public hide : Boolean = true;
   public datos !: unknown;
+  //listaUsuarios !: any;
+  getListaUsuarios !: any;
+  nuevaListaUsuarios : any = [];
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private obtenerInfoLocalStorage : ObtenerInfoLocalStorageService){}
 
   ngOnInit(): void {
-     
+    this.getListaUsuarios = this.obtenerInfoLocalStorage.getItem("listaUsuarios");
     this.formularioRegistro = new FormGroup({
-      nombres: new FormControl(),
+      nombre: new FormControl(),
       apellidos: new FormControl(),
       edad: new FormControl(),
       identificacion: new FormControl(),
@@ -25,7 +29,7 @@ export class FormularioRegistroComponent implements OnInit{
       genero: new FormControl(),
       perfil: new FormControl(),
       email: new FormControl(),
-      password: new FormControl(),
+      pass: new FormControl(),
       celular: new FormControl(),
     })
   }
@@ -35,12 +39,37 @@ export class FormularioRegistroComponent implements OnInit{
     alert("Ingreso: \n"+ 
     JSON.stringify(this.formularioRegistro.value));
 
+    if(this.formularioRegistro.value.perfil == "estudiante"){
+      this.formularioRegistro.value.promedio = 0;
+      this.formularioRegistro.value.notasMateria = {
+        ciencias: 0,
+        fisica: 0,
+        ingles: 0,
+        matematicas: 0
+      };
+      this.formularioRegistro.value.observaciones = "ninguna";
+     // this.formularioRegistro.value.salon = 999;
+    }else if(this.formularioRegistro.value.perfil == "administrador"){
+      this.formularioRegistro.value.promedio = 0;
+      this.formularioRegistro.value.materia = "por Decidir";
+      this.formularioRegistro.value.salario = 0;
+    }
+    const listaUsuarios = JSON.parse(this.getListaUsuarios);
+
+    console.log("infoListaUsuaris"+ typeof listaUsuarios);
+    for (const usuario of listaUsuarios) {
+      this.nuevaListaUsuarios.push(usuario);
+    }
+    this.nuevaListaUsuarios.push(this.formularioRegistro.value);
+    console.log(this.nuevaListaUsuarios);
+
+    this.obtenerInfoLocalStorage.setItem("listaUsuarios", JSON.stringify(this.nuevaListaUsuarios));
     this.limpiarCampos();
   }
 
    limpiarCampos(): void{
     this.formularioRegistro.setValue({
-      nombres: "",
+      nombre: "",
       apellidos: "",
       edad: "",
       identificacion: "",
@@ -48,7 +77,7 @@ export class FormularioRegistroComponent implements OnInit{
       genero: "",
       perfil: "",
       email: "",
-      password: "",
+      pass: "",
       celular: "",
     });
   }

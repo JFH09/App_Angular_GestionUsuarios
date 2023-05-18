@@ -29,4 +29,10 @@ export class UsuarioEffects {
   private obtenerUsuarios(): Observable<any>{
     return this.httpClient.get(`${environment.desarrolloURL}datosUsuariosProvisional.json`)
   }
+
+  // private obtenerUsuarios(): Observable<any>{
+  //   const usuarios = this.obtenerInfoLocalStorage.getItem("listaUsuarios")
+  //   console.log(usuarios);
+  //   return of(usuarios);
+  // }
 }

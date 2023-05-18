@@ -4,7 +4,7 @@
     <h1>Registrar Usuario</h1>
     <mat-form-field class="example-full-width nombre">
       <mat-label>Nombres</mat-label>
-      <input matInput formControlName="nombres">
+      <input matInput formControlName="nombre">
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
     <mat-form-field class="example-full-width apellidos">
@@ -66,8 +66,8 @@
     </mat-form-field>
     <mat-form-field class="password" appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      <input matInput formControlName="pass" [type]="hide ? 'pass' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide pass'"
         [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
