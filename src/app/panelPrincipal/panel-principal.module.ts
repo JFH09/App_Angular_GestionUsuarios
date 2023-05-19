@@ -16,6 +16,9 @@ import { MateriasPipe } from '../pipes/materias.pipe';
 import { DiferenciaUsuariosAdminEstudDirective } from '../directivas/diferencia-usuarios-admin-estud.directive';
 import { MaterialModule } from '../modulos/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContenidoInfousuariosComponent } from '../listaUsuarios/pages/contenidoInfoUsuarios/contenido-infousuarios.component';
+import { ListaUsuariosModule } from '../listaUsuarios/lista-usuarios.module';
+import { CardInfousuariosComponent } from '../listaUsuarios/pages/cardInfoUsuarios/card-infousuarios.component';
 
 
 
@@ -32,7 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     JuntarNombresPipe,
     MateriasPipe,
     DiferenciaUsuariosAdminEstudDirective,
-    FormularioRegistroComponent
+    FormularioRegistroComponent,
+    CardInfousuariosComponent,
+    ContenidoInfousuariosComponent
+    
   ],
   imports: [
     CommonModule,
@@ -40,6 +46,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    //ListaUsuariosModule
+    
+ 
   ],
   exports:[
     RouterModule

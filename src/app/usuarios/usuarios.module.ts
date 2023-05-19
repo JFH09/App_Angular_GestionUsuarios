@@ -15,9 +15,9 @@ import { DiferenciaUsuariosAdminEstudDirective } from '../directivas/diferencia-
   declarations: [
   //  ContenidoUsuariosComponent,
     //CardInfoUsuariosComponent,
-    CabecerasTamano20Directive,
-    JuntarNombresPipe,
-    MateriasPipe,
+   // CabecerasTamano20Directive,
+    //JuntarNombresPipe,
+    //MateriasPipe,
     //DiferenciaUsuariosAdminEstudDirective
   ],
   imports: [

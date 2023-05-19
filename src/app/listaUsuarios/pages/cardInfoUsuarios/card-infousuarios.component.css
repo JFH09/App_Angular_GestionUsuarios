@@ -1,0 +1,53 @@
+/* .contenidoEstudiantes{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3px;
+    column-gap: 5px;
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+
+.cardEstudiante{
+    line-height: 20px;
+}
+
+.imagenEstudiante{
+    padding-left: 8px;
+}
+
+.notasMaterias{
+    padding-top: 8px;
+    padding-left: 15%;
+    /* text-align: center; */
+    padding-bottom: 10px;
+    line-height: 8px;
+}
+
+.notasMaterias p:nth-child(1){
+    color: rgb(228, 148, 0);
+    font-weight: 600;
+}
+.notasMaterias p:nth-child(2){
+    color: cadetblue;
+    font-weight: 600;
+}
+.notasMaterias p:nth-child(3){
+    color: blueviolet;
+    font-weight: 600;
+}
+.notasMaterias p:nth-child(4){
+    color: #7c9fff;
+    font-weight: 600;
+}
+.aprobado{
+    color: rgb(32 189 32);
+    font-weight: bold;
+}
+.perdido{
+    color: red;
+    font-weight: bold;
+}
+

@@ -1,0 +1,47 @@
+<div class="card mb-3 `{{usuario.perfil}}`" appListaEstudiantes appDiferenciaUsuariosAdminEstud
+  [perfilEstudiante]="usuario.perfil">
+
+  <div class="row g-0">
+    <div class="col-md-4 ">
+      <img src=" https://cdn-icons-png.flaticon.com/512/6073/6073874.png"
+        class="img-fluid rounded-start imagenEstudiante" style="padding-top: 15px;" alt="imagen-Usuario">
+      <div class="notasMaterias" *ngIf="usuario.perfil != 'administrador';  ">
+        <!-- <p class="card-text notaMateria">{{"Matematicas"| materias : "Matematicas" }} <span -->
+        <p class="card-text notaMateria">Matemaricas: <span
+            [ngClass]="usuario.notasMaterias.matematicas >= 66 ? 'aprobado':'perdido'">{{usuario.notasMaterias.matematicas}}</span>
+        </p>
+        <p class="card-text notaMateria">Ciencias: <span
+            [ngClass]="usuario.notasMaterias.ciencias >= 66 ? 'aprobado':'perdido'">{{usuario.notasMaterias.ciencias}}</span>
+        </p>
+        <p class="card-text notaMateria">Ingles: <span
+            [ngClass]="usuario.notasMaterias.ingles >= 66 ? 'aprobado':'perdido'">{{usuario.notasMaterias.ingles}}</span>
+        </p>
+        <p class="card-text notaMateria">Fisica:<span
+            [ngClass]="usuario.notasMaterias.fisica >= 66 ? 'aprobado':'perdido'">{{usuario.notasMaterias.fisica}}</span>
+        </p>
+      </div>
+      <div class="notasMaterias" *ngIf="usuario.perfil == 'administrador';  ">
+        <p class="card-text notaMateria">Salario :<span>{{usuario.salario}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body cardEstudiante">
+        <h5 class="card-title" appCabecerasTamano20> Nombre:
+          {{nombreCompleto | juntarNombres: usuario.nombre : usuario.apellidos}}</h5>
+        <h5 class="card-text"> Identificación: {{usuario.identificacion}}</h5>
+        <p class="card-text">edad: {{usuario.edad}}</p>
+        <p class="card-text">Perfil: {{usuario.perfil | uppercase}}</p>
+        <p class="card-text">salon: {{usuario.salon}}</p>
+        <p class="card-text" [ngClass]="promedio >= 70 ? 'aprobado':'perdido'">Promedio:
+          {{sacarPromedio(usuario.notasMaterias.matematicas,usuario.notasMaterias.ciencias, usuario.notasMaterias.ingles,usuario.notasMaterias.fisica)}}
+        </p>
+
+        <p class="card-text">Observaciones: <br> {{usuario.observaciones}}</p>
+
+        <a href="#" class="btn btn-primary m-1" (click)="editarEstudiante()">Editar</a>
+        <button class="btn btn-danger m-1" (click)="eliminarUsuario()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

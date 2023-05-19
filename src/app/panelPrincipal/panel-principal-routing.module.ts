@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PanelPrincipalComponent } from './pages/panel-principal.component';
 import { FormularioRegistroComponent } from '../formularioRegistro/pages/formulario-registro.component';
 import { ContenidoUsuariosComponent } from '../usuarios/pages/contenido-usuarios/contenido-usuarios.component';
+import { ContenidoInfousuariosComponent } from '../listaUsuarios/pages/contenidoInfoUsuarios/contenido-infousuarios.component';
 
 // const routes : Routes = [
 //   { 
@@ -25,6 +26,7 @@ import { ContenidoUsuariosComponent } from '../usuarios/pages/contenido-usuarios
         { path: "registro", component: FormularioRegistroComponent},
         //{ path: "login", component: FormularioLoginComponent},
         { path: "listaEstudiantes", component: ContenidoUsuariosComponent},
+        { path: "listaUsuarios", component: ContenidoInfousuariosComponent},
         // { path: "listaEstudiantes/:parametro", component: ContenidoUsuariosComponent},
       ]}
     ])

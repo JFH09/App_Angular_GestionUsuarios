@@ -116,7 +116,12 @@ console.log(this.usuariosAlmacenados);
           })
         this.router.navigate(['panelPrincipal']);
     }else{
-      alert("intenta nuevamente")
+      Swal.fire({
+        title: "Intenta Nuevamente!",
+        //text: "Ocurrio un inconveniente... ",
+        icon: "error",
+        confirmButtonText: "Ok",
+      })
     }
       
 
