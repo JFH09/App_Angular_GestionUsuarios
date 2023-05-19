@@ -17,6 +17,7 @@
 
 
 .formulario{
+    margin: 10px;
     color: aliceblue;
     width: 80%;
     height: 65%;
@@ -108,7 +109,7 @@ mat-icon{
 }
 
 
-.perfil{
+.notaMatematicas{
     grid-column: 3;
     grid-row:  3;
 }

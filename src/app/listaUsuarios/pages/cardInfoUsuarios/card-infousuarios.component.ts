@@ -5,6 +5,7 @@ import { UsuarioEstudiante } from 'src/app/usuarios/interfaces/usuarioEstudiante
 import Swal from 'sweetalert2';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { EditarFormularioDialogComponent } from 'src/app/componentes/editar-formulario-dialog.component';
+import { DatosCompartidosFormService } from 'src/app/servicios/datos-compartidos-form.service';
 
 @Component({
   selector: 'app-card-infousuarios',
@@ -24,6 +25,9 @@ export class CardInfousuariosComponent implements OnInit{
   @Output() alumnoModificar  =new EventEmitter<UsuarioEstudiante>();
   @Output() perfilUsuario !: String;
 
+  @Input() datos: any;
+  @Output() editar = new EventEmitter();
+
   public mostrarUsuariosPerfil !: string;
   public nombreCompleto!: string;
 
@@ -32,10 +36,17 @@ export class CardInfousuariosComponent implements OnInit{
   public nuevaListaUsers  :any[] = [];
 
 
-  constructor(public dialog: MatDialog, private activateRoute: ActivatedRoute, private router: Router,private obtenerInfoLocalStorageService: ObtenerInfoLocalStorageService){
+  constructor(public dialog: MatDialog, private activateRoute: ActivatedRoute, 
+    private router: Router,private obtenerInfoLocalStorageService: ObtenerInfoLocalStorageService,
+    private datosCompartidosFormService: DatosCompartidosFormService){
 
   }
+  datosParaEditar: any;
 
+  enviarDatos() {
+    const datos = 'Estos son los datos que quiero enviar';
+    this.datosCompartidosFormService.datos = this.usuario;
+  }
   ngOnInit(): void {
     // this.activateRoute.params.subscribe(parametro => {
     //   for (const key in parametro) {
@@ -45,9 +56,13 @@ export class CardInfousuariosComponent implements OnInit{
     //   console.log(this.mostrarUsuariosPerfil)
     // });
   }
+  
   abrirDialogo() {
+
     const dialogRef = this.dialog.open(EditarFormularioDialogComponent, {
-      width: '400px',
+      width: '85%',
+      height: 'auto',
+      data: this.usuario
       // Opciones adicionales del diálogo, como data, panelClass, etc.
     });
 
@@ -66,6 +81,7 @@ export class CardInfousuariosComponent implements OnInit{
   editarEstudiante(){
     alert("editar - " +this.usuario.nombre);
     this.alumnoModificar.emit(this.usuario);
+
   }
 
   eliminarUsuario(){
