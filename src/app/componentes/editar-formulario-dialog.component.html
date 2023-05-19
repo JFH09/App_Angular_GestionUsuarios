@@ -39,11 +39,34 @@
       <input type="number" matInput formControlName="curso" [(ngModel)]="curso">
       <mat-icon matSuffix>school</mat-icon>
     </mat-form-field>
-    <!-- <mat-form-field class="example-full-width notaMatematicas">
-      <mat-label>Nota Matematicasmat-label>
+    <!-- <div class="materias"> -->
+    <mat-form-field class="example-full-width notaMatematicas" *ngIf="perfil != 'administrador';">
+      <mat-label>Nota Matematicas</mat-label>
+      <input type="number" matInput formControlName="notaMatematicas" [(ngModel)]="notaMatematicas">
+      <mat-icon matSuffix>calculate</mat-icon>
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width sueldo" *ngIf="perfil == 'administrador';">
+        <mat-label>Nota Matematicas</mat-label>
         <input type="number" matInput formControlName="notaMatematicas" [(ngModel)]="notaMatematicas">
-        <mat-icon matSuffix>school</mat-icon>
-    </mat-form-field> -->
+        <mat-icon matSuffix>calculate</mat-icon>
+      </mat-form-field> -->
+    <mat-form-field class="example-full-width notaCiencias">
+      <mat-label>Nota Ciencias</mat-label>
+      <input type="number" matInput formControlName="notaCiencias" [(ngModel)]="notaCiencias">
+      <mat-icon matSuffix>science</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="example-full-width notaIngles">
+      <mat-label>Nota Ingles</mat-label>
+      <input type="number" matInput formControlName="notaIngles" [(ngModel)]="notaIngles">
+      <mat-icon matSuffix>translate</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="example-full-width notaFisica">
+      <mat-label>Nota Fisica</mat-label>
+      <input type="number" matInput formControlName="notaFisica" [(ngModel)]="notaFisica">
+      <mat-icon matSuffix>psychology</mat-icon>
+    </mat-form-field>
+    <!-- </div> -->
+
     <!-- <mat-form-field class="perfil" appearance="fill">
       <mat-label>Perfil</mat-label>
       <mat-select formControlName="perfil" [(ngModel)]="perfil">

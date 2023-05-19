@@ -27,9 +27,12 @@ export class EditarFormularioDialogComponent implements OnInit{
   public pass!: any; 
   public celular!: any; 
   public notaMatematicas!: any; 
+  public notaCiencias!: any; 
+  public notaIngles!: any; 
+  public notaFisica!: any; 
+  public sueldo!: any;
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private datosCompartidosFormService: DatosCompartidosFormService) {
-    // Los datos enviados al diálogo están disponibles en la propiedad 'data'
     this.data = data;
   }
   ngOnInit(): void {
@@ -46,9 +49,12 @@ export class EditarFormularioDialogComponent implements OnInit{
       pass: new FormControl(),
       celular: new FormControl(),
       notaMatematicas : new FormControl(),
+      notaCiencias : new FormControl(),
+      notaIngles : new FormControl(),
+      notaFisica : new FormControl(),
+      sueldo: new FormControl()
     })
     console.log("usuario editar::: " + (this.data.notasMaterias.matematicas));
-
     this.nombre =  this.data.nombre;
     this.apellidos  =  this.data.apellidos; 
     this.edad  =  this.data.edad; 
@@ -60,6 +66,10 @@ export class EditarFormularioDialogComponent implements OnInit{
     this.pass  =  this.data.pass; 
     this.celular  =  this.data.celular; 
     this.notaMatematicas = this.data.notasMaterias.matematicas;
+    this.notaCiencias = this.data.notasMaterias.ciencias;
+    this.notaIngles = this.data.notasMaterias.ingles;
+    this.notaFisica = this.data.notasMaterias.fisica;
+    this.sueldo = this.data.sueldo;
   }
 
 
