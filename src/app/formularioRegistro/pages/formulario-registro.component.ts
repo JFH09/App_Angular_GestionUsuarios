@@ -46,7 +46,7 @@ export class FormularioRegistroComponent implements OnInit{
           icon: "error",
           confirmButtonText: "Ok",
         });
-        this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(()=> this.router.navigate(["registro"]));
+        this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(()=> this.router.navigate(["login"]));
         
     }else{
 
@@ -56,11 +56,11 @@ export class FormularioRegistroComponent implements OnInit{
   
       if(this.formularioRegistro.value.perfil == "estudiante"){
         this.formularioRegistro.value.promedio = 0;
-        this.formularioRegistro.value.notasMateria = {
-          ciencias: 0,
-          fisica: 0,
-          ingles: 0,
-          matematicas: 0
+        this.formularioRegistro.value.notasMaterias = {
+          ciencias: 999,
+          fisica: 999,
+          ingles: 999,
+          matematicas: 999
         };
         this.formularioRegistro.value.observaciones = "ninguna";
        // this.formularioRegistro.value.salon = 999;
@@ -68,6 +68,12 @@ export class FormularioRegistroComponent implements OnInit{
         this.formularioRegistro.value.promedio = 0;
         this.formularioRegistro.value.materia = "por Decidir";
         this.formularioRegistro.value.salario = 0;
+        // this.formularioRegistro.value.notasMateria = {
+        //   ciencias: 999,
+        //   fisica: 999,
+        //   ingles: 999,
+        //   matematicas: 999
+        // };
       }
       const listaUsuarios = JSON.parse(this.getListaUsuarios);
   
@@ -81,7 +87,7 @@ export class FormularioRegistroComponent implements OnInit{
       this.obtenerInfoLocalStorage.setItem("listaUsuarios", JSON.stringify(this.nuevaListaUsuarios));
       this.limpiarCampos();
 
-      
+      // this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(()=> this.router.navigate(["login"]));
     }
 
   }

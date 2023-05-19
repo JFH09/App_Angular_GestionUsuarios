@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output , Inject} from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { ObtenerInfoLocalStorageService } from 'src/app/servicios/obtener-info-local-storage.service';
 import { UsuarioEstudiante } from 'src/app/usuarios/interfaces/usuarioEstudiante.model';
 import Swal from 'sweetalert2';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { EditarFormularioDialogComponent } from 'src/app/componentes/editar-formulario-dialog.component';
 
 @Component({
   selector: 'app-card-infousuarios',
@@ -29,9 +31,11 @@ export class CardInfousuariosComponent implements OnInit{
   public listaUsers  :any[] = [];
   public nuevaListaUsers  :any[] = [];
 
-  constructor(private activateRoute: ActivatedRoute, private router: Router,private obtenerInfoLocalStorageService: ObtenerInfoLocalStorageService){
+
+  constructor(public dialog: MatDialog, private activateRoute: ActivatedRoute, private router: Router,private obtenerInfoLocalStorageService: ObtenerInfoLocalStorageService){
 
   }
+
   ngOnInit(): void {
     // this.activateRoute.params.subscribe(parametro => {
     //   for (const key in parametro) {
@@ -41,6 +45,18 @@ export class CardInfousuariosComponent implements OnInit{
     //   console.log(this.mostrarUsuariosPerfil)
     // });
   }
+  abrirDialogo() {
+    const dialogRef = this.dialog.open(EditarFormularioDialogComponent, {
+      width: '400px',
+      // Opciones adicionales del diálogo, como data, panelClass, etc.
+    });
+
+    // Puedes suscribirte a los eventos del diálogo si lo deseas
+    dialogRef.afterClosed().subscribe(result => {
+      // Acciones después de que se cierra el diálogo
+    });
+  }
+
   sacarPromedio (matematicas:number, ciencias:number, ingles:number, fisica:number){
 
     this.promedio = ((matematicas + ciencias + ingles + fisica)/ 4)
@@ -92,7 +108,6 @@ export class CardInfousuariosComponent implements OnInit{
       }
     });
     
-    
   }
-  
 }
+

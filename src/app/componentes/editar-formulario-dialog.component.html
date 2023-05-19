@@ -1,0 +1,95 @@
+<div>
+  <div class="registro">
+    <!-- <app-logo></app-logo> -->
+    <form [formGroup]="formularioRegistro" (submit)="actualizarDatos()" class="example-form formulario">
+      <h1>Registrar Usuario</h1>
+      <mat-form-field class="example-full-width nombre">
+        <mat-label>Nombres</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="example-full-width apellidos">
+        <mat-label>Apellidos</mat-label>
+        <mat-icon matSuffix>person</mat-icon>
+        <input matInput formControlName="apellidos">
+      </mat-form-field>
+      <div class="dosCampos">
+        <mat-form-field class="example-full-width edad">
+          <mat-label>Edad</mat-label>
+          <input type="number" matInput formControlName="edad">
+          <mat-icon matSuffix>accessibility new</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="genero" appearance="fill">
+          <mat-label>Genero</mat-label>
+          <mat-select formControlName="genero">
+            <mat-option value="masculino">Masculino <mat-icon matSuffix>man</mat-icon>
+            </mat-option>
+            <mat-option value="femenino">Femenino <mat-icon matSuffix>woman</mat-icon>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <mat-form-field class="example-full-width identificacion">
+        <mat-label>Identificación</mat-label>
+        <input type="number" matInput formControlName="identificacion">
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="example-full-width curso">
+        <mat-label>Curso</mat-label>
+        <input type="number" matInput formControlName="curso">
+        <mat-icon matSuffix>school</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="perfil" appearance="fill">
+        <mat-label>Perfil</mat-label>
+        <mat-select formControlName="perfil">
+          <mat-option value="estudiante">Estudiante <mat-icon matSuffix>school</mat-icon>
+          </mat-option>
+
+          <mat-option value="administrador">Administrador <mat-icon matSuffix>shield person</mat-icon>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width email">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+        <!-- [formControl]="emailFormControl" [errorStateMatcher]="matcher"-->
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error>
+          Please enter a valid email address
+        </mat-error>
+        <!--*ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')"-->
+        <mat-error>
+          Email is <strong>required</strong>
+        </mat-error>
+        <!--*ngIf="emailFormControl.hasError('required')"-->
+      </mat-form-field>
+      <mat-form-field class="password" appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="pass" [type]="hide ? 'pass' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide pass'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width celular">
+        <mat-label>Celular de Contacto</mat-label>
+        <span matPrefix>+57 &nbsp;</span>
+        <input type="tel" matInput placeholder="000-111-2222" formControlName="celular">
+        <mat-icon matSuffix>call</mat-icon>
+      </mat-form-field>
+
+      <button type="submit" class="btn btnRegistrarme">Registrarme</button>
+      <button type="button" class="btn btn-danger cancelar" (click)="cancelar()">Cancelar</button>
+      <!-- <br>
+            {{formularioRegistro.value | json}}
+            <br>
+            <h5>Nombre: </h5> {{formularioRegistro.get("nombre")?.value | json}} -->
+    </form>
+
+
+  </div>
+
+</div>

@@ -6,8 +6,7 @@
       <img src=" https://cdn-icons-png.flaticon.com/512/6073/6073874.png"
         class="img-fluid rounded-start imagenEstudiante" style="padding-top: 15px;" alt="imagen-Usuario">
       <div class="notasMaterias" *ngIf="usuario.perfil != 'administrador';  ">
-        <!-- <p class="card-text notaMateria">{{"Matematicas"| materias : "Matematicas" }} <span -->
-        <p class="card-text notaMateria">Matemaricas: <span
+        <p class="card-text notaMateria">{{"Matematicas"| materias : "Matematicas" }} <span
             [ngClass]="usuario.notasMaterias.matematicas >= 66 ? 'aprobado':'perdido'">{{usuario.notasMaterias.matematicas}}</span>
         </p>
         <p class="card-text notaMateria">Ciencias: <span
@@ -33,14 +32,19 @@
         <p class="card-text">edad: {{usuario.edad}}</p>
         <p class="card-text">Perfil: {{usuario.perfil | uppercase}}</p>
         <p class="card-text">salon: {{usuario.salon}}</p>
-        <p class="card-text" [ngClass]="promedio >= 70 ? 'aprobado':'perdido'">Promedio:
+        <p class="card-text">promedio: {{usuario.promedio}}</p>
+        <p class="card-text" [ngClass]="promedio >= 70 ? 'aprobado':'perdido'"
+          *ngIf="usuario.perfil != 'administrador';">Promedio:
           {{sacarPromedio(usuario.notasMaterias.matematicas,usuario.notasMaterias.ciencias, usuario.notasMaterias.ingles,usuario.notasMaterias.fisica)}}
         </p>
 
         <p class="card-text">Observaciones: <br> {{usuario.observaciones}}</p>
 
-        <a href="#" class="btn btn-primary m-1" (click)="editarEstudiante()">Editar</a>
+        <a class="btn btn-primary m-1" (click)="abrirDialogo()">Editar</a>
+        <a class="btn btn-primary m-1" (click)="editarEstudiante()">Editar</a>
         <button class="btn btn-danger m-1" (click)="eliminarUsuario()">Eliminar</button>
+        <!-- <button (click)="abrirDialogo()">Abrir Diálogo</button> -->
+
       </div>
     </div>
   </div>

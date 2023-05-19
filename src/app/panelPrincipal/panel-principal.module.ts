@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContenidoInfousuariosComponent } from '../listaUsuarios/pages/contenidoInfoUsuarios/contenido-infousuarios.component';
 import { ListaUsuariosModule } from '../listaUsuarios/lista-usuarios.module';
 import { CardInfousuariosComponent } from '../listaUsuarios/pages/cardInfoUsuarios/card-infousuarios.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditarFormularioDialogComponent } from '../componentes/editar-formulario-dialog.component';
 
 
 
@@ -37,7 +39,8 @@ import { CardInfousuariosComponent } from '../listaUsuarios/pages/cardInfoUsuari
     DiferenciaUsuariosAdminEstudDirective,
     FormularioRegistroComponent,
     CardInfousuariosComponent,
-    ContenidoInfousuariosComponent
+    ContenidoInfousuariosComponent,
+    EditarFormularioDialogComponent
     
   ],
   imports: [
@@ -46,6 +49,7 @@ import { CardInfousuariosComponent } from '../listaUsuarios/pages/cardInfoUsuari
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule
     //ListaUsuariosModule
     
  
