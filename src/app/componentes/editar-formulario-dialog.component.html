@@ -1,7 +1,7 @@
 <div class="registro">
   <!-- <app-logo></app-logo> -->
   <h1 *ngIf="estudianteModificar">Gestion a: {{estudianteModificar.nombre}}</h1>
-  <form [formGroup]="formularioRegistro" (submit)="actualizarDatos()" class="example-form formulario">
+  <form [formGroup]="formularioActualizacionData" (submit)="actualizarDatos()" class="example-form formulario">
     <h1>Editar Usuario</h1>
     <mat-form-field class="example-full-width nombre">
       <mat-label>Nombres</mat-label>
