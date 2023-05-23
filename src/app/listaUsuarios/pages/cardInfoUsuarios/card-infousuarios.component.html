@@ -40,8 +40,18 @@
 
         <p class="card-text">Observaciones: <br> {{usuario.observaciones}}</p>
 
-        <a class="btn btn-primary m-1" (click)="abrirDialogo()">Editar</a>
-        <button class="btn btn-danger m-1" (click)="eliminarUsuario()">Eliminar</button>
+
+        <a class="btn  btn-secondary text-secondary-emphasis m-1" (click)="eresEstudiante()"
+          *ngIf="infoUsuarioLogueado.perfil=='Estudiante'">Editar</a>
+        <button class="btn  btn-secondary text-secondary-emphasis m-1" (click)="eresEstudiante()"
+          *ngIf="infoUsuarioLogueado.perfil=='Estudiante'">Eliminar</button>
+
+
+        <a class="btn btn-primary m-1" (click)="abrirDialogo()"
+          *ngIf="infoUsuarioLogueado.perfil!='Estudiante'">Editar</a>
+        <button class="btn btn-danger m-1" (click)="eliminarUsuario()"
+          *ngIf="infoUsuarioLogueado.perfil!='Estudiante'">Eliminar</button>
+
 
       </div>
     </div>

@@ -34,8 +34,8 @@ export class CardInfousuariosComponent implements OnInit{
   public listaInfoUsuarios !: any;
   public listaUsers  :any[] = [];
   public nuevaListaUsers  :any[] = [];
-
-
+  public infoUserLogin !: any;
+  infoUsuarioLogueado !: any;
   constructor(public dialog: MatDialog, private activateRoute: ActivatedRoute, 
     private router: Router,private obtenerInfoLocalStorageService: ObtenerInfoLocalStorageService,
     private datosCompartidosFormService: DatosCompartidosFormService){
@@ -48,6 +48,9 @@ export class CardInfousuariosComponent implements OnInit{
     this.datosCompartidosFormService.datos = this.usuario;
   }
   ngOnInit(): void {
+    this.infoUserLogin = this.obtenerInfoLocalStorageService.getItem("infoUsuarioLogin");
+    this.infoUsuarioLogueado = JSON.parse(this.infoUserLogin);
+    console.log(this.infoUsuarioLogueado.perfil);
     // this.activateRoute.params.subscribe(parametro => {
     //   for (const key in parametro) {
     //     this.mostrarUsuariosPerfil = parametro[key];
@@ -76,6 +79,16 @@ export class CardInfousuariosComponent implements OnInit{
 
     this.promedio = ((matematicas + ciencias + ingles + fisica)/ 4)
     return this.promedio;
+  }
+
+  eresEstudiante(){
+    
+    Swal.fire({
+      title: "No puedes editar o eliminar!",
+      text: "Para poder editar o eliminar, inicia Sesión como administrador",
+      icon: "info",
+      confirmButtonText: "Ok",
+    });
   }
 
   editarEstudiante(){
